@@ -20,9 +20,11 @@
 # product configuration (apps).
 #
 $(call inherit-product, vendor/asus/zenfone8/zenfone8-vendor.mk)
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Include GSI keys
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
