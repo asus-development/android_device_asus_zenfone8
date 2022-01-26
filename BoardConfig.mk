@@ -119,11 +119,11 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 
 #HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/vendor_framework_compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/framework_manifest.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest_lahaina.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/hidl/vendor_framework_compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/hidl/framework_manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/manifest_lahaina.xml
 ODM_MANIFEST_SKUS := eSE
-ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/eSE_manifest.xml
+ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/hidl/eSE_manifest.xml
 
 # Kernel
 KERNEL_LD := LD=ld.lld
