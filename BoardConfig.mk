@@ -122,6 +122,7 @@ BOARD_EXT4_SHARE_DUP_BLOCKS := true
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/hidl/vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/hidl/framework_manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/manifest_lahaina.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/hidl/compatibility_matrix.xml
 ODM_MANIFEST_SKUS := eSE
 ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/hidl/eSE_manifest.xml
 
@@ -130,7 +131,7 @@ KERNEL_LD := LD=ld.lld
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=0 firmware_class.path=/vendor/firmware loop.max_part=7 cgroup.memory=nokmem,nosocket pcie_ports=compat loop.max_part=7 iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
 TARGET_KERNEL_ARCH := arm64
@@ -301,6 +302,7 @@ TARGET_BOARD_PLATFORM := lahaina
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno660
 
 # Properties
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
@@ -321,5 +323,4 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Treble
-#BOARD_VNDK_VERSION := current
-BOARD_SYSTEMSDK_VERSIONS := 30
+BOARD_VNDK_VERSION := current
